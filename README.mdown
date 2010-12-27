@@ -48,7 +48,7 @@ TinyMceUploads also assumes you may want to upload files of all types. If you'd 
 
 ## Troubleshooting
 
-If the last line in your routes file is a *glob match, you may never hit the routes supplied by this Rails engine. Oh noes! A simple fix is to modify your *glob route to use the included ExcludeTinyMceUploadsConstraint like so:
+If the last line in your routes file is a \*glob match, you may never hit the routes supplied by this Rails engine. Oh noes! A simple fix is to modify your \*glob route to use the included ExcludeTinyMceUploadsConstraint like so:
 
     # config/routes.rb
     require 'tiny_mce_uploads/exclude_tiny_mce_uploads_constraint'
