@@ -1,0 +1,50 @@
+# TinyMceUploads
+
+TinyMceUploads provides a Rails Engine to allow for uploading files through TinyMCE in Rails 3 applications.
+
+## Installation
+
+Add the following to your application's Gemfile:
+
+    gem 'tiny_mce_uploads', '~> 0.0.2'
+
+and run:
+
+    bundle install
+
+to install the gem.
+
+## Usage
+
+Generate a migration for your Attachments:
+
+    rails generate tiny_mce_uploads
+
+and run this migration:
+
+    rake db:migrate
+
+Then just add the 'fupload' plugin to your config/tinymce.yml file, e.g. change:
+
+    theme_advanced_buttons1: formatselect,fontsizeselect
+
+to:
+
+    theme_advanced_buttons1: formatselect,fontsizeselect,fupload
+
+You should be solid.
+
+## Configuration
+
+By default, TinyMceUploads creates a new AttachmentsController that descends from ApplicationController. If you'd like to change this, you can create a new file in config/initializers/ to specify your desired superclass like so:
+
+    # config/initializers/tiny_mce_uploads/rb:
+    TinyMceUploads.attachments_controller_superclass_name = "Admin::BaseController"
+
+TinyMceUploads also assumes you may want to upload files of all types. If you'd like to restrict uploads to just images, you can add the following to your initializer:
+
+    # config/initializers/tiny_mce_uploads/rb:
+    TinyMceUploads.only_allow_images = true
+
+## Credits
+This Rails Engine is Copyright 2010 by [Dan Hodos](mailto:danhodos[at]gmail[dot]com), sponsored by [One Design Company](http://onedesigncompany.com/). It is based on the [tinymce_fileupload plugin](https://github.com/evilmartians/tinymce_fileupload). Released under the MIT License.

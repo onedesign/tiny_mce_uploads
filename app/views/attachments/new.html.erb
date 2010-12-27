@@ -1,0 +1,12 @@
+<%= form_for @attachment, :html => { :multipart => true } do |form| %>
+  <%= form.error_messages %>
+
+  <p>
+    <%= form.label :upload, 'Choose File:' %><br>
+    <%= form.file_field :upload %>
+  </p>
+
+  <p>
+    <%= form.submit 'Upload' %>
+  </p>
+<% end %>

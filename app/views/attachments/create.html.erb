@@ -1,0 +1,5 @@
+<%= javascript_include_tag 'tiny_mce/tiny_mce_popup.js' %>
+<script type="text/javascript">
+  tinyMCE.execCommand('mceInsertContent',false,'<%= raw @insertion_string %>');
+  tinyMCEPopup.close();
+</script>
