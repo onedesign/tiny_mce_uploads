@@ -46,5 +46,13 @@ TinyMceUploads also assumes you may want to upload files of all types. If you'd 
     # config/initializers/tiny_mce_uploads/rb:
     TinyMceUploads.only_allow_images = true
 
+## Troubleshooting
+
+If the last line in your routes file is a *glob match, you may never hit the routes supplied by this Rails engine. Oh noes! A simple fix is to modify your *glob route to use the included ExcludeTinyMceUploadsConstraint like so:
+
+    # config/routes.rb
+    require 'tiny_mce_uploads/exclude_tiny_mce_uploads_constraint'
+    match '*path' => 'static_items#show', :constraints => ExcludeTinyMceUploadsConstraint.new
+
 ## Credits
 This Rails Engine is Copyright 2010 by [Dan Hodos](mailto:danhodos[at]gmail[dot]com), sponsored by [One Design Company](http://onedesigncompany.com/). It is based on the [tinymce_fileupload plugin](https://github.com/evilmartians/tinymce_fileupload). Released under the MIT License.
